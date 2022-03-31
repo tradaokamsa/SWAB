@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWAB</title>
-    <link rel="stylesheet" href="raw.css">
-    <link rel="stylesheet" href="image">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='image/background.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='image/eye.jpg') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='image/logo.jpg') }}">   
 </head>
 
 <body>
     <div id="navbar">
         <ul>
-            <li id="logo"><a href="#background_image" id="logo-link"><img id="image_logo" src="image/logo.jpg" alt="swab_logo"></a></li>
+            <li id="logo"><a href="#background_image" id="logo-link"><img id="image_logo" src="{{ url_for('static', filename='image/logo.jpg') }}" alt="swab_logo"></a></li>
             <li id="header-menu-item"><a href="#explain-section">Giải thích</a></li>
             <li id="header-menu-item"><a href="#prmeter-section">Hiển thị</a></li>
             <li id="header-menu-item"><a href="#map-section">Liên lạc</a></li>
@@ -21,7 +23,7 @@
         </ul>
     </div>
     
-    <div><img id="background_image" src="image/background.jpg" alt=""></div>
+    <div><img id="background_image" src="{{ url_for('static', filename='image/background.jpg') }}" alt=""></div>
     
     <div id="intro-section">
         <iframe id="video" src="https://www.youtube.com/embed/ofGqU4G7M_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -34,21 +36,24 @@
 
     <div id="prmeter-section">
         <table id="table_1" border="1">
+            
             <tr>
                 <th colspan="3">THÔNG SỐ</th>
             </tr>
+                
             <tr>
                 <td id="num">Độ PH</td>
-                <td id="num">1000</td>
+                <td id="num">{{ request.data }}</td>
             </tr>
             <tr>
                 <td id="num">Nhiệt độ</td>
-                <td id="num">1000</td>
+                <td id="num">7</td>
             </tr>
             <tr>
                 <td id="num">TDS</td>
-                <td id="num">1000</td>
+                <td id="num">0</td>
             </tr>
+            
         </table>
         <table id="table_2">
             <tr>
@@ -63,7 +68,7 @@
     </div>
     
     <div id="explain-section">
-        <img id="explain_image" src="image/eye.jpg" alt="">
+        <img id="explain_image" src="{{ url_for('static', filename='image/eye.jpg') }}" alt="">
         <p id="explain_para">Nam dep trai</p>
     </div>
     
