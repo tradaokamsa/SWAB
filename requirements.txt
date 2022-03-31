@@ -4,8 +4,6 @@ Flask-SQLAlchemy==2.5.1
 gunicorn==20.1.0
 mysql==0.0.3
 mysqlclient==2.1.0
-path @ file:///C:/ci/path_1624287837534/work
-py @ file:///tmp/build/80754af9/py_1607971587848/work
 pytz==2021.3
 requests @ file:///tmp/build/80754af9/requests_1629994808627/work
 SQLAlchemy @ file:///C:/ci/sqlalchemy_1626948551162/work
