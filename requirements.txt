@@ -3,18 +3,14 @@ fastapi==0.75.0
 Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
 Flask-SQLAlchemy==2.5.1
 gunicorn==20.1.0
-mypy-extensions==0.4.3
 mysql==0.0.3
 mysqlclient==2.1.0
 packaging @ file:///tmp/build/80754af9/packaging_1625611678980/work
 path @ file:///C:/ci/path_1624287837534/work
-pathlib2 @ file:///C:/ci/pathlib2_1625585796814/work
-ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
 py @ file:///tmp/build/80754af9/py_1607971587848/work
 pytz==2021.3
 requests @ file:///tmp/build/80754af9/requests_1629994808627/work
 SQLAlchemy @ file:///C:/ci/sqlalchemy_1626948551162/work
-urllib3==1.26.7
+
 uvicorn==0.17.6
 virtualenv==20.13.4
-zipp @ file:///tmp/build/80754af9/zipp_1633618647012/work
