@@ -1,13 +1,31 @@
 from flask import Flask, render_template, url_for, request
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    do_Ph = request.args.get('do_Ph')
-    nhiet_do = request.args.get('nhiet_do')
-    do_duc = request.args.get('do_duc')
-    return render_template('index.html', do_Ph=do_Ph, nhiet_do=nhiet_do, do_duc=do_duc)
+db_name ='sockmarket.db'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+db = SQLAlchemy(app)
+
+class Sock(db.Model):
+    __tablename__ = 'socks'
+    id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String)
+    do_Ph = db.Column(db.Float)
+    nhiet_do = db.Column(db.Float)
+    do_duc = db.Column(db.Float)
+    
+
+
+@app.route('/inventory/<status>')
+def inventory(status):
+    socks = Sock.query.filter_by(status=status).order_by(Sock.do_Ph).all() 
+    return render_template('index.html', socks=socks, status=status)
 
 if __name__ == "__main__":
     app.run(debug=True) 
