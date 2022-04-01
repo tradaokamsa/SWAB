@@ -23,14 +23,14 @@ html {
 }
 
 #logo-link {
-    width: 55px;
+    width:55px;
     height: 55px;
 }
 
 #image_logo {
     width: 55px;
     height: 55px;    
-    margin: -24px;
+    margin:-24px;
     clear: none;
 }
 
@@ -112,47 +112,48 @@ li a:hover {
 
 /* parameter section */
 #prmeter-section{
-    
     background-image: linear-gradient(aquamarine, #36cf57);
+    height: 300px;
+    padding-top: 100px;
 }
 
-#table_1 {
-    padding-top: 60px;
-    border: 1;
+table {
+    border: 2;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 66%;
+    border-collapse: collapse;
 }
 
-#num {
-    width: 50%;
+th, td {
+    padding: 8px;
     text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-top: 500px;
+}
+tbody{
+    margin-top: 500px;
+
 }
 
-#table_2 {
-    border: 1;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 60px;
-}
 
 /* eplainaiton section */
 #explain-section {
     float: none;
-    height: 800px;
+    height: 1000px;
     background-color: #36cf57;
 }
 
 #explain_image {
-    height: 800px;
+    margin-top: 100px;
+    height: 600px;
     width: auto;
     float: left;
 }
 
 #explain_para {
     text-align: center;
-    padding-top:60px;
+    padding-top:100px;
 }
 
 /* contact section */
@@ -173,3 +174,5 @@ p1 {
     padding-top: 5px;
     font-size: 9px;
 }
+
+
