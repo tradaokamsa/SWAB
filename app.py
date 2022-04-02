@@ -40,7 +40,7 @@ def api():
 def index():
     sock=Sock.query.all()[-1]
     doPh = sock.do_Ph
-    doduc=sock.do_duc
+    doduc = sock.do_duc
 
     return render_template('index.html', doPh=doPh, doduc=doduc)
     
