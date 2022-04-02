@@ -154,6 +154,10 @@ tbody{
 #explain_para {
     text-align: center;
     padding-top:100px;
+    padding-left: 700px;
+    padding-right: 120px;
+    font-size:large;
+    font-family:'Courier New', Courier, monospace;
 }
 
 /* contact section */

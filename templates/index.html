@@ -8,7 +8,7 @@
     <title>SWAB</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='image/background.jpg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='image/eye.jpg') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='image/boat.jpg') }}"> 
     <link rel="stylesheet" href="{{ url_for('static', filename='image/logo.jpg') }}">   
 </head>
 
@@ -59,8 +59,9 @@
     </div>
     
     <div id="explain-section">
-        <img id="explain_image" src="{{ url_for('static', filename='image/eye.jpg') }}" alt="">
-        <p id="explain_para">Nam dep trai</p>
+        <img id="explain_image" src="{{ url_for('static', filename='image/boat.jpg') }}" alt="">
+        <p id="explain_para">Các bạn có thể thấy hình bên trái kia chính là sơ đồ thiết kế chung con thuyền của chúng mình. Để thân thiện với người dùng thì chúng mình đã quyết định tạo ra một chiếc thuyền làm hoàn toàn từ nhựa tái chế. Với cả chiếc thuyền có thể được sử dụng lên tới phạm vi gần 30m bằng một chiếc tay cầm điều khiển từ xa và hoàn toàn có thể hoạt động liên tục trong suốt khoảng hơn 5 tiếng đồng hồ. Để đo được những thông số liên quan đến chất lượng nước thì chúng mình đã tích hợp thêm những cái cảm biến cơ bản như là đo độ đục hay là đo độ pH. Nguyên lý hoạt động và cách sử dụng chiếc thuyền của chúng mình cũng rất đơn giản. Để sử dụng, trước tiên các bạn hãy đặt thuyền xuống nước rồi điều khiển cho thuyền chạy tới địa điểm cần đo (lưu ý là thuyền hoạt động tốt nhất trong phạm vi khoảng 30m). Đầu tiên, thuyền bắt đầu đo đạc các thông số như là độ pH, nhiệt độ, độ đục, sau đó các thông số sẽ được chuyển vào Arduino Uno (chip xử lý dữ liệu). Tiếp đến dữ liệu sẽ đi tới Node MCU (chip gửi dữ liệu) để truyền các thông số lên chính website này do bọn mình thiết kế. 
+        </p>
     </div>
     
     <div id="contact-section">
