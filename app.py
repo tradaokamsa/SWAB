@@ -20,12 +20,17 @@ class Sock(db.Model):
     nhiet_do = db.Column(db.Float)
     do_duc = db.Column(db.Float)
     
+do_duoc = Sock.query.all()
+for i in do_duoc:
+    doPh = i.do_Ph 
+    nhietdo = i.nhiet_do
+    doduc = i.do_duc
 
 
-@app.route('/inventory/<status>')
-def inventory(status):
-    socks = Sock.query.filter_by(status=status).order_by(Sock.do_Ph).all() 
-    return render_template('index.html', socks=socks, status=status)
+@app.route('/')
+def index():
+    return render_template('index.html', doPh=doPh, nhietdo=nhietdo, doduc=doduc)
+
 
 if __name__ == "__main__":
     app.run(debug=True) 

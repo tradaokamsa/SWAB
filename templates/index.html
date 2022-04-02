@@ -35,26 +35,25 @@
     </div>
 
     <div id="prmeter-section">
-        <p>Dữ liệu: <strong>{{ status }}</strong></p>
         <table>
             <tr>
                 <th>Thông số</th>
                 <th>Hiển thị</th>
             </tr>
-            {% for sock in socks %}
-                <tr>
-                    <td>Độ PH</td>
-                    <td>{{ sock.do_Ph }}</td>
-                </tr>
-                <tr>
-                    <td>Nhiệt độ</td>
-                    <td>{{ sock.nhiet_do }}</td>
-                </tr>
-                <tr>
-                    <td>Độ đục</td>
-                    <td>{{ sock.do_duc }}</td>
-                </tr>
-            {% endfor %}
+            
+            <tr>
+                <td>Độ PH</td>
+                <td>{{ doPh }}</td>
+            </tr>
+            <tr>
+                <td>Nhiệt độ</td>
+                <td>{{ nhietdo }}</td>
+            </tr>
+            <tr>
+                <td>Độ đục</td>
+                <td>{{ doduc }}</td>
+            </tr>
+            
         </table>
         
     </div>
