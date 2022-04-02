@@ -17,7 +17,6 @@ class Sock(db.Model):
     __tablename__ = 'socks'
     
     do_Ph = db.Column(db.Float, primary_key=True)
-    nhiet_do = db.Column(db.Float)
     do_duc = db.Column(db.Float)
     
 db.create_all()
@@ -25,9 +24,8 @@ db.create_all()
 @app.route('/')
 def api():
     do_Ph = request.args.get('do_Ph')
-    nhiet_do = request.args.get('nhiet_do')
     do_duc = request.args.get('do_duc')
-    dbsock = Sock(do_Ph=do_Ph, nhiet_do=nhiet_do, do_duc=do_duc)
+    dbsock = Sock(do_Ph=do_Ph, do_duc=do_duc)
     try:
         db.session.add(dbsock)
         return db.session.commit()
@@ -42,10 +40,9 @@ def api():
 def index():
     sock=Sock.query.all()[-1]
     doPh = sock.do_Ph
-    nhietdo= sock.nhiet_do
     doduc=sock.do_duc
 
-    return render_template('index.html', doPh=doPh, nhietdo=nhietdo, doduc=doduc)
+    return render_template('index.html', doPh=doPh, doduc=doduc)
     
 
     
