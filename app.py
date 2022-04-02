@@ -21,7 +21,7 @@ class Sock(db.Model):
     
 db.create_all()
 
-@app.route('/')
+@app.route('/changedata')
 def api():
     do_Ph = request.args.get('do_Ph')
     do_duc = request.args.get('do_duc')
@@ -31,12 +31,12 @@ def api():
         return db.session.commit()
     except exc.IntegrityError:
         db.session.rollback()
-        return 'ok'
+        return 'Nam dep trai'
     
     
     
 
-@app.route('/web')
+@app.route('/')
 def index():
     sock=Sock.query.all()[-1]
     doPh = sock.do_Ph
