@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
 
 
 app = Flask(__name__)
 
-db_name ='sockmarket.db'
+db_name ='data1.db'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
 
@@ -14,23 +15,39 @@ db = SQLAlchemy(app)
 
 class Sock(db.Model):
     __tablename__ = 'socks'
-    id = db.Column(db.Integer, primary_key=True)
-    status = db.Column(db.String)
-    do_Ph = db.Column(db.Float)
+    
+    do_Ph = db.Column(db.Float, primary_key=True)
     nhiet_do = db.Column(db.Float)
     do_duc = db.Column(db.Float)
     
-do_duoc = Sock.query.all()
-for i in do_duoc:
-    doPh = i.do_Ph 
-    nhietdo = i.nhiet_do
-    doduc = i.do_duc
-
+db.create_all()
 
 @app.route('/')
+def api():
+    do_Ph = request.args.get('do_Ph')
+    nhiet_do = request.args.get('nhiet_do')
+    do_duc = request.args.get('do_duc')
+    dbsock = Sock(do_Ph=do_Ph, nhiet_do=nhiet_do, do_duc=do_duc)
+    try:
+        db.session.add(dbsock)
+        return db.session.commit()
+    except exc.IntegrityError:
+        db.session.rollback()
+        return 'ok'
+    
+    
+    
+
+@app.route('/web')
 def index():
+    sock=Sock.query.all()[-1]
+    doPh = sock.do_Ph
+    nhietdo= sock.nhiet_do
+    doduc=sock.do_duc
+
     return render_template('index.html', doPh=doPh, nhietdo=nhietdo, doduc=doduc)
+    
 
-
+    
 if __name__ == "__main__":
     app.run(debug=True) 
