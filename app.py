@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
+import json
 
 
 app = Flask(__name__)
@@ -28,10 +29,21 @@ def api():
     dbsock = Sock(do_Ph=do_Ph, do_duc=do_duc)
     
     db.session.add(dbsock)
+    db.session.commit()
     return {'do_Ph': do_Ph, 'do_duc': do_duc} 
     
     
+@app.route('/getdata')
+def getdata():
+    # return list(Sock.query.all())
+    data = Sock.query.all()
+    result = list(
+        map(
+            lambda x: { 'do_Ph': x.do_Ph, 'do_duc': x.do_duc }, data
+        )
+    )
     
+    return json.dumps(result)
 
 @app.route('/web')
 def index():
