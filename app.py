@@ -15,8 +15,8 @@ db = SQLAlchemy(app)
 
 class Sock(db.Model):
     __tablename__ = 'socks'
-    
-    do_Ph = db.Column(db.Float, primary_key=True)
+    id = db.Column(db.Integer, primary_key = True)
+    do_Ph = db.Column(db.Float)
     do_duc = db.Column(db.Float)
     
 db.create_all()
@@ -26,12 +26,9 @@ def api():
     do_Ph = request.args.get('do_Ph')
     do_duc = request.args.get('do_duc')
     dbsock = Sock(do_Ph=do_Ph, do_duc=do_duc)
-    try:
-        db.session.add(dbsock)
-        return db.session.commit()
-    except exc.IntegrityError:
-        db.session.rollback()
-        return 'ok'
+    
+    db.session.add(dbsock)
+    return {'do_Ph': do_Ph, 'do_duc': do_duc} 
     
     
     
